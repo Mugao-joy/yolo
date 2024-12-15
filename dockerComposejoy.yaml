@@ -18,7 +18,7 @@ services:
 
   #Builds the backend Docker image and creates the backend microservice
   mugao-IP5-backend:
-    image: 
+    image: mugaojoy/mugao-yolo-backend:v1.0.0
     build: ./backend
     container_name: 
     stdin_open: true
@@ -27,8 +27,10 @@ services:
     ports:
       - "5000:5000"
     depends_on: 
-      - 
+      - database
     networks:
       - weekfivenet
+
+  
 
   
