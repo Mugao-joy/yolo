@@ -41,7 +41,7 @@ services:
       - weekfivenet
     volumes:
       - type: volume
-        source: app-mongo-data
+        source: week5vol
         target: /data/db
 
   #network infrastructure
