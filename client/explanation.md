@@ -13,6 +13,8 @@ This document outlines the rationale and approach taken to containerize the e-co
     -----I was getting a node version error that was preventing the client side from running locally and instead of downgrading the node bersion i used the following command----------
         export NODE_OPTIONS=--openssl-legacy-provider
         npm start
+
+    --------for the database i Used the official MongoDB Docker image: No additional setup is needed since MongoDB’s image is prebuilt.----------
 ==========================================================================================================
 7. Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
 8. There is a screenshot of your deployed image on DockerHub, clearly showing the version of the image

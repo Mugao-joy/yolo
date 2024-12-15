@@ -44,6 +44,17 @@ services:
         source: app-mongo-data
         target: /data/db
 
+  #network infrastructure
+  networks:
+  weekfivenet:
+    name: weekfivenet
+    driver: bridge
+    attachable: true
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+          ip_range: 192.168.1.0/24
+
     
 
   
