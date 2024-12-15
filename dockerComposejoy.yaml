@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+
+  #Builds the frontend Docker image and creates the frontend microservice
+  mugao-IP5-lient:
+    image: mugaojoy/mugao-yolo-client:v1.0.0
+    build: ./client
+    container_name: mugaojoy-IP5-client
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - mugaojoy-IP5-backend
+    networks:
+      - weekfivenet
+
+  #Builds the backend Docker image and creates the backend microservice
+  mugao-IP5-backend:
+    image: 
+    build: ./backend
+    container_name: 
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - "5000:5000"
+    depends_on: 
+      - 
+    networks:
+      - weekfivenet
+
+  

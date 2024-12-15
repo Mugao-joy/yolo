@@ -37,7 +37,7 @@ services:
     depends_on: 
       - app-ip-mongo
     networks:
-      - app-net
+      - weekfivenet
 
   #Creates the database microservice
   app-ip-mongo:
