@@ -54,7 +54,9 @@ services:
       config:
         - subnet: 192.168.1.0/24
           ip_range: 192.168.1.0/24
-
-    
+  #volume to persist data
+  volumes:
+  week5vol:
+    driver: local 
 
   
