@@ -31,6 +31,19 @@ services:
     networks:
       - weekfivenet
 
-  
+  #database
+  app-ip-mongo:
+    image: mongo
+    container_name: app-mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - weekfivenet
+    volumes:
+      - type: volume
+        source: app-mongo-data
+        target: /data/db
+
+    
 
   
