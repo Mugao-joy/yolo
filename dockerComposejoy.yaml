@@ -48,7 +48,7 @@ services:
   networks:
   weekfivenet:
     name: weekfivenet
-    driver: bridge
+    driver: macvlan
     attachable: true
     ipam:
       config:
