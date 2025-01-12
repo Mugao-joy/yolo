@@ -1,0 +1,48 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+      tags:
+        - docker
+
+    - name: Pull backend Docker image
+      docker_image:
+        name: mugaojoy/mugao-yolo-backend
+        source: pull
+      tags:
+        - backend
+
+    - name: Pull frontend Docker image
+      docker_image:
+        name: mugaojoy/mugao-yolo-client
+        source: pull
+      tags:
+        - client
+
+    - name: Run backend container
+      docker_container:
+        name: backend
+        image: mugaojoy/mugao-yolo-backend
+        state: started
+        exposed_ports:
+          - "5000"
+        published_ports:
+          - "5000:5000"
+      tags:
+        - backend
+
+    - name: Run frontend container
+      docker_container:
+        name: frontend
+        image: mugaojoy/mugao-yolo-client
+        state: started
+        exposed_ports:
+          - "3000"
+        published_ports:
+          - "3000:3000"
+      tags:
+        - client
