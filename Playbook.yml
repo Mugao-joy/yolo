@@ -1,0 +1,53 @@
+---
+- name: Setup frontend and backend Docker containers
+  hosts: all
+  become: true
+  vars_files:
+    - roles/ClientRoles/variables/main.yml
+    - roles/BackendRoles/variables/main.yml
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+
+        update_cache: yes
+        upgrade: dist
+        name: nodejs
+        state: present
+    - name: Install Node.js
+      apt:
+        name: nodejs
+        state: present
+    - name: Install npm
+      apt:
+        name: npm
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Install Docker Compose
+      apt:
+        name: dockerComposejoy
+        state: present
+
+    - name: Clone project repository
+      git:
+        repo: "{{ rhttps://github.com/Mugao-joy/yolo }}"
+        dest: /home/vagrant/project
+
+    - name: Set permissions for Docker
+      shell: |
+        usermod -aG docker $USER
+        newgrp docker
+
+    - name: Build and run Docker containers
+      shell: |
+        dockerComposejoy up -d
+    - name: Include frontend role
+      include_role:
+        name: ClientRoles
+    - name: Include backend role
+      include_role:
+        name: BackendRoles

@@ -1,0 +1,16 @@
+---
+- name: Pull image from repository
+  docker_image:
+    name: mugaojoy/mugao-yolo-backend:v1.0.0
+    source: pull
+
+- name: Create Node.js Backend Container
+  docker_container:
+    name: mugao-yolo-backend
+    image: mugaojoy/mugao-yolo-backend:v1.0.0
+    networks:
+      - name: weekfivenet
+    ports:
+      - "5000:5000"
+    command: "npm start"
+  become: yes

@@ -1,0 +1,4 @@
+---
+container_name: mugao-yolo-backend
+network: weekfivenet
+volume: week5vol
