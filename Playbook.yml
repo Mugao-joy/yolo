@@ -34,7 +34,7 @@
 
     - name: Clone project repository
       git:
-        repo: "{{ rhttps://github.com/Mugao-joy/yolo }}"
+        repo: "{{ https://github.com/Mugao-joy/yolo }}"
         dest: /home/vagrant/project
 
     - name: Set permissions for Docker
