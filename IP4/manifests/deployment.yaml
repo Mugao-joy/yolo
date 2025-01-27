@@ -1,22 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: mugaojoy-deployment
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: mugaojoy-deployment-client
   template:
     metadata:
       labels:
-        app: myapp
+        app: mugaojoy-deployment-client
     spec:
       containers:
-      - name: myapp
-        image: <Image>
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+      - name: mugaojoy-deployment-client
+        image: mugaojoy/mugao-yolo-client:v1.0.0
+        
         ports:
-        - containerPort: <Port>
+        - containerPort: 3000
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mugaojoy-deployment-backend
+spec:
+  selector:
+    matchLabels:
+      app: mugaojoy-deployment-backend
+  template:
+    metadata:
+      labels:
+        app: mugaojoy-deployment-backend
+    spec:
+      containers:
+      - name: mugaojoy-deployment-backend
+        image: mugaojoy/mugao-yolo-backend:v1.0.0
+        
+        ports:
+        - containerPort: 8000
