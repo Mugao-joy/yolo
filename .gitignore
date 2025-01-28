@@ -7,3 +7,15 @@ vault.yml
 .vscode
 .vscode/*
 .vscode/*.json
+**/google-cloud-sdk/**
+google-cloud-sdk
+google-cloud-cli-507.0.0-linux-x86_64.tar.gz
+google-cloud-cli-507.0.0.tar.gz
+google-cloud-sdk/completion.bash.inc
+google-cloud-sdk/completion.zsh.inc
+google-cloud-sdk/LICENSE
+google-cloud-sdk/RELEASE_NOTES
+google-cloud-sdk/README
+google-cloud-sdk/VERSION
+google-cloud-sdk/install.bat
+google-cloud-sdk/install.sh
