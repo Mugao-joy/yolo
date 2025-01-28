@@ -1,15 +1,12 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: lastip-vol
+  name: backend-deployment-joy-pv
 spec:
   capacity:
-    storage: 1Gi  
-  volumeMode: Filesystem
+    storage: 1Gi
   accessModes:
-    - ReadWriteOnce  
-  persistentVolumeReclaimPolicy: Retain  
-  storageClassName: standard  
+    - ReadWriteOnce
   gcePersistentDisk:
-    pdName: lastip-pv-disk  
-    fsType: ext4  
+    pdName: backend-deployment-joy-disk
+    fsType: ext4
