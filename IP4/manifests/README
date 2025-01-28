@@ -1,0 +1,39 @@
+## Kubernetes Project Overview
+This repository contains the implementation of a Kubernetes-based deployment designed to showcase containerized application deployment, internet exposure, and persistent storage management. The repository covers:
+
+- Deployment of applications using appropriate Kubernetes objects.
+- Internet traffic routing using Kubernetes services.
+- Handling of persistent storage for application data.
+- Git workflow for continuous development and deployment.
+- Debugging and application testing for production readiness.
+
+### Objectives Covered
+1. **Choice of Kubernetes Objects**
+2. **Exposure of Pods to Internet Traffic**
+3. **Persistent Storage Management**
+4. **Git Workflow**
+5. **Application Testing and Debugging**
+6. **Good Practices in Docker Image Management**
+
+### Usage
+1. Clone this repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd <repository-folder>
+   ```
+3. Apply Kubernetes manifests:
+   ```bash
+   kubectl apply -f <manifest-file>.yaml
+   ```
+4. Verify the deployment:
+   ```bash
+   kubectl get pods,svc
+   ```
+
+### Debugging Measures
+In case of issues during deployment, refer to the `EXPLANATION.md` file for detailed debugging steps.
+
+---
