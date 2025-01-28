@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment-joy 
+  labels:
+    app: backend-deployment-joy 
+  annotations:
+    description: Deployment for Yolo backend application
+spec:
+  replicas: 3  # Number of pod replicas for scalability and availability
+  selector:
+    matchLabels:
+      app: backend-deployment-joy  
+  template:
+    metadata:
+      labels:
+        app: backend-deployment-joy 
+    spec:
+      containers:
+      - name: backend-deployment-joy
+        image: mugaojoy/mugao-yolo-backend:v1.0.0  
+        command: ["npm", "start"] 
+        resources:
+          limits:
+            memory: "256Mi" 
+            cpu: "500m" 
+          requests:
+            memory: "128Mi"  
+            cpu: "250m"  
+        ports:
+        - containerPort: 5000 
+        volumeMounts:
+        - name: yolo-storage
+          mountPath: /app/storage 
+          
+        readinessProbe:  
+        
+          httpGet:
+            path: /  
+            
+            port: 5000  
+            
+          initialDelaySeconds: 10  
+          periodSeconds: 5  
+        livenessProbe:  
+          httpGet:
+            path: /  
+            port: 5000  
+          initialDelaySeconds: 15  
+          periodSeconds: 20  
+---
+# PersistentVolumeClaim for storage
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: yolo-backend-storage-claim
+spec:
+  accessModes:
+    - ReadWriteOnce  
+  resources:
+    requests:
+      storage: 1Gi  
+  storageClassName: standard  

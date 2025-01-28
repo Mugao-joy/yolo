@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment-joy
+  labels:
+    app: client-deployment-joy
+spec:
+  replicas: 3  # Number of pod replicas
+  selector:
+    matchLabels:
+      app: client-deployment-joy
+  template:
+    metadata:
+      labels:
+        app: client-deployment-joy
+    spec:
+      containers:
+      - name: client-deployment-joy
+        image: mugaojoy/mugao-yolo-client:v1.0.0
+        resources:
+          limits:
+            memory: "256Mi"  
+            cpu: "500m"  
+          requests:
+            memory: "128Mi"  
+            cpu: "250m"  
+        ports:
+        - containerPort: 80  

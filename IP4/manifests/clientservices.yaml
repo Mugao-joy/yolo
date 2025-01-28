@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: yolo-client-service 
+  name: client-deployment-joy 
   labels:
-    app: yolo-client
+    app: client-deployment-joy
 spec:
   type: LoadBalancer  
   selector:
-    app: yolo-client  # Match pods with this label
+    app: client-deployment-joy 
   ports:
-  - port: 80  # External port exposed by the service
-    targetPort: 80  # Port inside the container where Nginx is running
+  - port: 80  
+    targetPort: 80 
